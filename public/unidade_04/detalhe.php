@@ -1,11 +1,18 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 <?php
+    //iniciando variavel de sessão
+    session_start();
+
+    if(!isset($_SESSION["user_portal"])){
+       header("Location: login.php");
+    }
+
     //Verifica se foi iniciada/ Configurada.
     if( isset($_GET["codigo"]) ){
     $produto_id = $_GET["codigo"];
     }else{
         //Quando não encontra, direciona para a pagina inicial
-        Header("Location: inicial.php");
+        Header("Location: login.php");
     }
 
     //consulta ao banco de dados
