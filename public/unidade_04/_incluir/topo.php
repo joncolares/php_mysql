@@ -1,4 +1,5 @@
 <? require_once("../../conexao/conexao.php")?>
+    <link rel="stylesheet" href="../_css/estilo.css">
 <header>
     <div id="header_central">
         <?php

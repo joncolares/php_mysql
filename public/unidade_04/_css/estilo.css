@@ -13,6 +13,13 @@ div#header_central {
     margin:0 auto;
 }
 
+div#header_saudacao {
+    position: absolute;
+    top:0;
+    right:0px;
+    text-align: right;
+}
+
 main {
     width:960px;
     min-height: 500px;
