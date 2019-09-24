@@ -8,20 +8,20 @@
 
     //inserido no banco
    if(isset($_POST["nometransportadora"])){
-        $nome = $_POST["nometransportadora"];
-        $endereco = $_POST["endereco"];
-        $telefone = $_POST["telefone"];
-        $cidade = $_POST["cidade"];
-        $estado = $_POST["estados"];
-        $cep = $_POST["cep"];
-        $cnpj = $_POST["cnpj"];
+        $nome = utf8_decode($_POST["nometransportadora"]);
+        $endereco = utf8_decode($_POST["endereco"]);
+        $telefone = utf8_decode($_POST["telefone"]);
+        $cidade = utf8_decode($_POST["cidade"]);
+        $estado = utf8_decode($_POST["estados"]);
+        $cep = utf8_decode($_POST["cep"]);
+        $cnpj = utf8_decode($_POST["cnpj"]);
 
         $inserir = "insert into transportadoras (nometransportadora, endereco, telefone, cidade, estadoID, cep, cnpj) ";
         $inserir .= "values ('$nome','$endereco', '$telefone', '$cidade', $estado, '$cep', '$cnpj')";
 
         $operacao_inserir = mysqli_query($conecta, $inserir);
         if(!$operacao_inserir) die("Erro ao inserir no Banco");
-
+     
     }
 
     //iniciar a sessão, deve-se colocar em todas as paginas que possuirem variaveis de sessão
@@ -29,6 +29,7 @@
     $select = "select * from estados";
     $lista_estados = mysqli_query($conecta, $select);
     if(!$lista_estados) die("Falha na conexão com o banco de dados");
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -53,7 +54,7 @@
                 <?php
                     while($linha = mysqli_fetch_assoc($lista_estados)){
                 ?>
-                    <option value="<?php echo ($linha['estadoID']);?>"><?php echo utf8_encode($linha["nome"]);?></option>
+                    <option value="<?php echo ($linha['estadoID']);?>" ><?php echo utf8_encode($linha["nome"]);?></option>
                 <?php
                      }
                 ?>
