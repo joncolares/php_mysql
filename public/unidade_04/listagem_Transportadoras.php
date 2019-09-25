@@ -19,7 +19,7 @@
         
         <style>
             div#janela_transportadoras {
-                width:600px;
+                width:700px;
                 margin:60px auto 0;
                 border:1px solid #EDEDDC;
                 font-family:sans-serif;
@@ -58,7 +58,15 @@
             
             div#janela_transportadoras li:nth-child(3) a {
                 color:#9A9668;
+                text-align:center;
+                padding:0 10px;
             }
+            
+            div#janela_transportadoras li:nth-child(4) a {
+                color:#9A9668;
+                text-align:center;
+                padding:0 10px;
+            }            
         </style>
     </head>
 
@@ -74,6 +82,7 @@
                     <li><?php echo utf8_encode($linha["nometransportadora"]) ?></li>
                     <li><?php echo utf8_encode($linha["cidade"]) ?></li>
                     <li><a href="alteracao.php?codigo=<?php echo $linha["transportadoraID"] ?>">Alterar</a> </li>
+                    <li><a href="exclusao.php?codigo=<?php echo $linha["transportadoraID"] ?>">Excluir</a> </li>
                 </ul>
                 <?php
                     }
